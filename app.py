@@ -18,10 +18,10 @@ def read_logs():
 
     # iterate through log files
     logs_df = []
-    for index, file in enumerate(files):
+    for test, file in enumerate(files):
 
         log_df = pd.read_csv(file)
-        log_df["index"] = index
+        log_df["test"] = test
         logs_df.append(log_df)
 
     all = pd.concat(logs_df, axis=0)
@@ -52,6 +52,8 @@ def stats(df, team, prod, type):
 
     df.sort_values(["time"], inplace=True)
 
+    "# data"
+
     df
 
     "# responses"
@@ -59,7 +61,7 @@ def stats(df, team, prod, type):
     fig, ax = plt.subplots()
     ax.set_yscale("log")
 
-    sns.scatterplot(data=df, x="index", y="duration", hue="app_id", size="code", ax=ax)
+    sns.scatterplot(data=df, x="test", y="duration", hue="app_id", size="code", ax=ax)
     st.pyplot(fig)
 
     "# duration"
