@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 import glob
 import os
@@ -13,9 +14,10 @@ def read_logs():
 
     # iterate through log files
     logs_df = []
-    for file in glob.iglob(os.path.join("data", "*.csv")):
+    for index, file in enumerate(glob.iglob(os.path.join("data", "*.csv"))):
 
         log_df = pd.read_csv(file)
+        log_df["index"] = index
         logs_df.append(log_df)
 
     all = pd.concat(logs_df, axis=0)
@@ -32,18 +34,42 @@ def stats(df):
 
     df["duration"] = df.duration / 1_000
 
-    df.sort_values("time", inplace=True)
+    df.sort_values(["index", "time"], inplace=True)
 
-    # show app duration
+    df
+
+    "# responses"
+
+    fig, ax = plt.subplots()
+
+    sns.scatterplot(data=df, x="index", y="duration", hue="app_id", size="code", ax=ax)
+    st.pyplot(fig)
+
+    "# duration"
+
+    fig, ax = plt.subplots()
+
     for app in apps:
-
-        st.write(f"# {app}")
 
         duration = df[df.app_id == app][["duration"]].reset_index().drop("index", axis=1)
 
-        fig, ax = plt.subplots()
         ax.plot(duration)
-        st.pyplot(fig)
+
+    ax.legend(apps)
+    st.pyplot(fig)
+
+    "# status code"
+
+    fig, ax = plt.subplots()
+
+    for app in apps:
+
+        code = df[df.app_id == app][["code"]].reset_index().drop("index", axis=1)
+
+        ax.plot(code)
+
+    ax.legend(apps)
+    st.pyplot(fig)
 
 
 if __name__ == '__main__':
