@@ -3,4 +3,5 @@ run:
 	python -m process
 
 web:
-	python -m app
+	streamlit run app.py
+	# python -m app
