@@ -58,7 +58,7 @@ def ping_apps(app_list):
     now = datetime.datetime.now()
     file_timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
     df = pd.DataFrame(logs)
-    df.to_csv(f"data/{file_timestamp}_logs.csv")
+    df.to_csv(f"data/{file_timestamp}_logs.csv", index=False)
 
 
 if __name__ == '__main__':
