@@ -1,45 +1,7 @@
-,team,name,type,url,code,time
-0,galaxy,prod,api,https://star-wars-mptzkkztqq-ew.a.run.app/,404,2021-03-04 12:27:40.784175
-1,galaxy,prod,web,https://galaxystreamlit.herokuapp.com/,200,2021-03-04 12:27:40.904123
-2,galaxy,alice,api,https://hamster-ev6iq3m3na-ew.a.run.app/,404,2021-03-04 12:27:40.964472
-3,mood,prod,web,https://backinthessr.herokuapp.com/,200,2021-03-04 12:27:41.104782
-
-apps = [dict(team="galaxy", name="prod",  type="api",  url="https://star-wars-mptzkkztqq-ew.a.run.app/",),
-        dict(team="galaxy", name="prod",  type="web",  url="https://galaxystreamlit.herokuapp.com/",),
-        dict(team="galaxy", name="alice", type="api",  url="https://hamster-ev6iq3m3na-ew.a.run.app/",),
-        dict(team="mood",   name="prod",  type="pres", url="https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR",),
-        dict(team="mood",   name="prod",  type="repo", url="https://github.com/Celine-Guan/backinthessr",),
-        dict(team="mood",   name="prod",  type="web",  url="https://backinthessr.herokuapp.com/",
-)]
-
-apps = [dict(
-    team="galaxy",
-    name="prod",
-    type="api",
-    url="https://star-wars-mptzkkztqq-ew.a.run.app/",
-), dict(
-    team="galaxy",
-    name="prod",
-    type="web",
-    url="https://galaxystreamlit.herokuapp.com/",
-), dict(
-    team="galaxy",
-    name="alice",
-    type="api",
-    url="https://hamster-ev6iq3m3na-ew.a.run.app/",
-), dict(
-    team="mood",
-    name="prod",
-    type="pres",
-    url="https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR",
-), dict(
-    team="mood",
-    name="prod",
-    type="repo",
-    url="https://github.com/Celine-Guan/backinthessr",
-), dict(
-    team="mood",
-    name="prod",
-    type="web",
-    url="https://backinthessr.herokuapp.com/",
-)]
+team,     name,     type,   url
+galaxy,   prod,     api,    https://star-wars-mptzkkztqq-ew.a.run.app/
+galaxy,   prod,     web,    https://galaxystreamlit.herokuapp.com/
+galaxy,   alice,    api,    https://hamster-ev6iq3m3na-ew.a.run.app/
+mood,     prod,     pres,   https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR
+mood,     prod,     repo,   https://github.com/Celine-Guan/backinthessr
+mood,     prod,     web,    https://backinthessr.herokuapp.com/
