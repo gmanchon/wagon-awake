@@ -31,7 +31,19 @@ def read_logs():
     return all
 
 
-def stats(df):
+def stats(df, team, prod, type):
+
+    # filter team
+    if team != "all":
+        df = df[df.team == team]
+
+    # filter prod
+    if prod != "all":
+        df = df[df.name == prod]
+
+    # filter type
+    if type != "all":
+        df = df[df.type == type]
 
     # retrieve duration per app
     apps = df.app_id.unique()
@@ -45,6 +57,7 @@ def stats(df):
     "# responses"
 
     fig, ax = plt.subplots()
+    ax.set_yscale("log")
 
     sns.scatterplot(data=df, x="index", y="duration", hue="app_id", size="code", ax=ax)
     st.pyplot(fig)
@@ -52,6 +65,7 @@ def stats(df):
     "# duration"
 
     fig, ax = plt.subplots()
+    ax.set_yscale("log")
 
     for app in apps:
 
@@ -76,7 +90,50 @@ def stats(df):
     st.pyplot(fig)
 
 
-if __name__ == '__main__':
-    res = read_logs()
-    print(res)
-    stats(res)
+# read logs
+all_df = read_logs()
+
+st.sidebar.markdown("# filters")
+
+# list teams
+teams = list(all_df.team.unique())
+team = st.sidebar.radio(
+    "team",
+    ["all"] + teams,
+    format_func=lambda x: dict(
+        all="All",
+        galaxy="Galaxy Finder ⭐️",
+        mood="Speech Emotion Recognition 🎙",
+        facemask="Face Mask Detection 😷",
+        gameone="Game Book 🎲",
+        bling="Bling Back The Cash 💵",
+        coin="Bitcoin Prediction 💰",
+        openff="Open Food Facts 🥙")[x])
+
+# list prod
+prods = list(all_df.name.unique())
+prod = st.sidebar.radio(
+    "prod",
+    ["all"] + prods,
+    format_func=lambda x: dict(
+        all="All",
+        prod="Prod 🤖",
+        team="Team 🎨",
+        alice="Alice 🐹")[x])
+
+# list types
+types = list(all_df.type.unique())
+type = st.sidebar.radio(
+    "type",
+    ["all"] + types,
+    format_func=lambda x: dict(
+        all="All",
+        api="API 🤖",
+        web="Web 🕸",
+        pres="Pres 🎨",
+        repo="Repo 🐍",
+        org="Project 🧮",
+        status="Org 📈")[x])
+
+# show stats
+stats(all_df, team, prod, type)
