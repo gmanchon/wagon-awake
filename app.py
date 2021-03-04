@@ -58,6 +58,24 @@ def stats(df, team, prod, type):
 
     "# responses"
 
+    "## altair"
+
+    import altair as alt
+
+    c = alt.Chart(df).mark_circle().encode(
+        x="test",
+        y=alt.Y("duration", scale=alt.Scale(type="log")),
+        size="code",
+        color="app_id",
+        tooltip=["test", "time", "duration", "code", "app_id"]
+    ).properties(
+        width=700,
+        height=300)
+
+    st.write(c)
+
+    "## seaborn"
+
     fig, ax = plt.subplots()
     ax.set_yscale("log")
 
