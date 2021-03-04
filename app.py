@@ -12,9 +12,13 @@ import os
 
 def read_logs():
 
+    # list files sorted by time
+    files = glob.glob(os.path.join("data", "*.csv"))
+    files.sort(key=os.path.getmtime)
+
     # iterate through log files
     logs_df = []
-    for index, file in enumerate(glob.iglob(os.path.join("data", "*.csv"))):
+    for index, file in enumerate(files):
 
         log_df = pd.read_csv(file)
         log_df["index"] = index
@@ -32,9 +36,9 @@ def stats(df):
     # retrieve duration per app
     apps = df.app_id.unique()
 
-    df["duration"] = df.duration / 1_000
+    df["duration"] = df.duration
 
-    df.sort_values(["index", "time"], inplace=True)
+    df.sort_values(["time"], inplace=True)
 
     df
 

@@ -4,6 +4,7 @@ import pandas as pd
 import requests
 
 import datetime
+import time
 
 # from params import apps
 
@@ -49,12 +50,12 @@ def ping_apps(app_list):
         if type in ["api", "web"]:
 
             log = app.copy()
-            start = datetime.datetime.now()
-            log["time"] = start
+            start = time.time()
+            log["time"] = datetime.datetime.now()
             log["code"] = ping_app(url)
 
-            end = datetime.datetime.now()
-            log["duration"] = (end - start).microseconds
+            end = time.time()
+            log["duration"] = end - start
 
             logs.append(log)
 
