@@ -2,7 +2,10 @@ team,     name,     type,   url
 galaxy,   prod,     api,    https://star-wars-mptzkkztqq-ew.a.run.app/
 galaxy,   prod,     web,    https://galaxystreamlit.herokuapp.com/
 galaxy,   alice,    api,    https://hamster-ev6iq3m3na-ew.a.run.app/
-mood,     prod,     pres,   https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR
-mood,     prod,     repo,   https://github.com/Celine-Guan/backinthessr
+mood,     team,     pres,   https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR
+mood,     team,     repo,   https://github.com/Celine-Guan/backinthessr
 mood,     prod,     web,    https://backinthessr.herokuapp.com/
 facemask, prod,     web,    https://pierrebrgit.github.io/facemask/html/
+openff,   team,     repo,   https://github.com/ramsyy0/OpenFoodFacts
+openff,   team,     org,    https://trello.com/b/5v1xeI5O/conduite-de-projet
+gameone,  team,     repo,   https://github.com/Agnes-Lain/game_one
