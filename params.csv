@@ -9,3 +9,5 @@ facemask, prod,     web,    https://pierrebrgit.github.io/facemask/html/
 openff,   team,     repo,   https://github.com/ramsyy0/OpenFoodFacts
 openff,   team,     org,    https://trello.com/b/5v1xeI5O/conduite-de-projet
 gameone,  team,     repo,   https://github.com/Agnes-Lain/game_one
+bling,    team,     status, no_prod
+coin,     team,     status, no_prod
