@@ -5,7 +5,7 @@ import requests
 
 import datetime
 
-from params import apps
+# from params import apps
 
 
 def load_params():
