@@ -1,3 +1,3 @@
 
 run:
-	python -m app
+	python -m process
