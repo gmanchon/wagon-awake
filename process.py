@@ -49,8 +49,12 @@ def ping_apps(app_list):
         if type in ["api", "web"]:
 
             log = app.copy()
+            start = datetime.datetime.now()
+            log["time"] = start
             log["code"] = ping_app(url)
-            log["time"] = datetime.datetime.now()
+
+            end = datetime.datetime.now()
+            log["duration"] = (end - start).microseconds
 
             logs.append(log)
 
