@@ -31,7 +31,7 @@ def read_logs():
     return all
 
 
-def stats(df, team, prod, type, graph, package):
+def stats(df, team, prod, type, graph, package, period):
 
     # filter team
     if team != "all":
@@ -67,14 +67,14 @@ def stats(df, team, prod, type, graph, package):
             import altair as alt
 
             c = alt.Chart(df).mark_circle().encode(
-                x="test",
+                x=period,
                 y=alt.Y(graph, scale=alt.Scale(type="log")),
                 size="code",
                 color="app_id",
-                tooltip=["test", "time", graph, "code", "app_id"]
+                tooltip=[period, "time", graph, "code", "app_id"]
             ).properties(
                 width=700,
-                height=300)
+                height=500)
 
             st.write(c)
 
@@ -83,7 +83,7 @@ def stats(df, team, prod, type, graph, package):
             fig, ax = plt.subplots()
             ax.set_yscale("log")
 
-            sns.scatterplot(data=df, x="test", y=graph, hue="app_id", size="code", ax=ax)
+            sns.scatterplot(data=df, x=period, y=graph, hue="app_id", size="code", ax=ax)
             st.pyplot(fig)
 
         elif package == "mpl_plot":
@@ -93,9 +93,9 @@ def stats(df, team, prod, type, graph, package):
 
             for app in apps:
 
-                duration = df[df.app_id == app][[graph]].reset_index().drop("index", axis=1)
+                plot_df = df[df.app_id == app][[graph]].reset_index().drop("index", axis=1)
 
-                ax.plot(duration)
+                ax.plot(plot_df)
 
             ax.legend(apps)
             st.pyplot(fig)
@@ -154,14 +154,25 @@ graph = cols[0].radio(
     options=["duration", "code", "data"],
     format_func=lambda x: dict(
         data="Data 🧾",
-        duration="Duration ⏰",
+        duration="Duration ⏳",
         code="Code 🚦")[x])
+
+# period
+period = ""
+if graph != "data":
+
+    period = cols[1].radio(
+        "period",
+        options=["test", "time"],
+        format_func=lambda x: dict(
+            test="Test 🤖",
+            time="Time ⏰")[x])
 
 # package
 package = ""
 if graph != "data":
 
-    package = cols[1].radio(
+    package = cols[2].radio(
         "viz",
         options=["altair", "mpl_scatter", "mpl_plot"],
         format_func=lambda x: dict(
@@ -170,4 +181,4 @@ if graph != "data":
             mpl_plot="Matplotlib Plot 📈")[x])
 
 # show stats
-stats(all_df, team, prod, type, graph, package)
+stats(all_df, team, prod, type, graph, package, period)
