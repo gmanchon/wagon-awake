@@ -6,7 +6,7 @@ galaxy,   old,      web,    https://galaxystreamlit.herokuapp.com/
 galaxy,   alice,    api,    https://hamster-ev6iq3m3na-ew.a.run.app/
 mood,     prod,     web,    https://backinthessr.herokuapp.com/
 mood,     team,     repo,   https://github.com/Celine-Guan/backinthessr
-mood,     team,     pres,   https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR
+mood,     team,     pres,   https://www.beautiful.ai/player/-MV24QxAFeopoDM7Ou0Z
 facemask, prod,     web,    https://pierrebrgit.github.io/facemask/html/
 openff,   prod,     api,    https://apioff-kdwmcasooa-ew.a.run.app/
 openff,   prod,     web,    http://35.195.223.137/
