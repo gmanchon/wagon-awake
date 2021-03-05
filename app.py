@@ -106,7 +106,7 @@ def stats(df, team, prod, type, graph, package, period, offset, window):
 
             for app in apps:
 
-                plot_df = df[df.app_id == app][[graph]].reset_index().drop("index", axis=1)
+                plot_df = df[df.app_id == app][[graph]].reset_index().drop("index_test", axis=1)
 
                 ax.plot(plot_df)
 
