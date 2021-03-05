@@ -31,7 +31,7 @@ def read_logs():
     return all
 
 
-def stats(df, team, prod, type):
+def stats(df, team, prod, type, graph, package):
 
     # filter team
     if team != "all":
@@ -52,62 +52,53 @@ def stats(df, team, prod, type):
 
     df.sort_values(["time"], inplace=True)
 
-    "# data"
+    if graph == "data":
 
-    df
+        "# data"
 
-    "# responses"
+        df
 
-    "## altair"
+    else:
 
-    import altair as alt
+        "# responses"
 
-    c = alt.Chart(df).mark_circle().encode(
-        x="test",
-        y=alt.Y("duration", scale=alt.Scale(type="log")),
-        size="code",
-        color="app_id",
-        tooltip=["test", "time", "duration", "code", "app_id"]
-    ).properties(
-        width=700,
-        height=300)
+        if package == "altair":
 
-    st.write(c)
+            import altair as alt
 
-    "## seaborn"
+            c = alt.Chart(df).mark_circle().encode(
+                x="test",
+                y=alt.Y(graph, scale=alt.Scale(type="log")),
+                size="code",
+                color="app_id",
+                tooltip=["test", "time", graph, "code", "app_id"]
+            ).properties(
+                width=700,
+                height=300)
 
-    fig, ax = plt.subplots()
-    ax.set_yscale("log")
+            st.write(c)
 
-    sns.scatterplot(data=df, x="test", y="duration", hue="app_id", size="code", ax=ax)
-    st.pyplot(fig)
+        elif package == "mpl_scatter":
 
-    "# duration"
+            fig, ax = plt.subplots()
+            ax.set_yscale("log")
 
-    fig, ax = plt.subplots()
-    ax.set_yscale("log")
+            sns.scatterplot(data=df, x="test", y=graph, hue="app_id", size="code", ax=ax)
+            st.pyplot(fig)
 
-    for app in apps:
+        elif package == "mpl_plot":
 
-        duration = df[df.app_id == app][["duration"]].reset_index().drop("index", axis=1)
+            fig, ax = plt.subplots()
+            ax.set_yscale("log")
 
-        ax.plot(duration)
+            for app in apps:
 
-    ax.legend(apps)
-    st.pyplot(fig)
+                duration = df[df.app_id == app][[graph]].reset_index().drop("index", axis=1)
 
-    "# status code"
+                ax.plot(duration)
 
-    fig, ax = plt.subplots()
-
-    for app in apps:
-
-        code = df[df.app_id == app][["code"]].reset_index().drop("index", axis=1)
-
-        ax.plot(code)
-
-    ax.legend(apps)
-    st.pyplot(fig)
+            ax.legend(apps)
+            st.pyplot(fig)
 
 
 # read logs
@@ -155,5 +146,28 @@ type = st.sidebar.radio(
         org="Project 🧮",
         status="Org 📈")[x])
 
+cols = st.beta_columns(3)
+
+# graph
+graph = cols[0].radio(
+    "graph",
+    options=["duration", "code", "data"],
+    format_func=lambda x: dict(
+        data="Data 🧾",
+        duration="Duration ⏰",
+        code="Code 🚦")[x])
+
+# package
+package = ""
+if graph != "data":
+
+    package = cols[1].radio(
+        "viz",
+        options=["altair", "mpl_scatter", "mpl_plot"],
+        format_func=lambda x: dict(
+            altair="Altair 🔥",
+            mpl_scatter="Matplotlib Scatter ❄️",
+            mpl_plot="Matplotlib Plot 📈")[x])
+
 # show stats
-stats(all_df, team, prod, type)
+stats(all_df, team, prod, type, graph, package)
