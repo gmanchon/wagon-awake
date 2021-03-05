@@ -1,6 +1,7 @@
 team,     name,     type,   url
 galaxy,   prod,     api,    https://galaxyfinder-mptzkkztqq-ew.a.run.app/
 galaxy,   prod,     web,    https://galaxyfinder.herokuapp.com/
+galaxy,   team,     pres,   https://docs.google.com/presentation/d/12ZzQD536DbshE3aQlF-IFxz87U6rzv5K6AtN8sX-b6s/edit#slide=id.p
 galaxy,   old,      api,    https://star-wars-mptzkkztqq-ew.a.run.app/
 galaxy,   old,      web,    https://galaxystreamlit.herokuapp.com/
 galaxy,   alice,    api,    https://hamster-ev6iq3m3na-ew.a.run.app/
