@@ -8,12 +8,12 @@ mood,     prod,     web,    https://backinthessr.herokuapp.com/
 mood,     team,     repo,   https://github.com/Celine-Guan/backinthessr
 mood,     team,     pres,   https://www.beautiful.ai/player/-MUrnVCdxzKexGOLpEgr/Back-in-the-SSR
 facemask, prod,     web,    https://pierrebrgit.github.io/facemask/html/
-openff,   team,     api,    https://apioff-kdwmcasooa-ew.a.run.app/
-openff,   team,     web,    http://35.195.223.137/
+openff,   prod,     api,    https://apioff-kdwmcasooa-ew.a.run.app/
+openff,   prod,     web,    http://35.195.223.137/
 openff,   team,     repo,   https://github.com/ramsyy0/OpenFoodFacts
 openff,   team,     org,    https://trello.com/b/5v1xeI5O/conduite-de-projet
-gameone,  prod,     web,    https://gameclan.herokuapp.com/
 gameone,  prod,     api,    https://batch-552-game-one-p275zsri5a-ew.a.run.app/user_pred_games
+gameone,  prod,     web,    https://gameclan.herokuapp.com/
 gameone,  team,     repo,   https://github.com/Agnes-Lain/game_one
-bling,    team,     status, no_prod
-coin,     team,     status, no_prod
+bling,    team,     status, none
+coin,     team,     status, none
