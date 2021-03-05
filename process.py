@@ -45,9 +45,10 @@ def ping_apps(app_list):
 
         type = app["type"]
         url = app["url"]
+        name = app["name"]
 
         # ping app
-        if type in ["api", "web"]:
+        if type in ["api", "web"] and name in ["prod"]:
 
             log = app.copy()
             start = time.time()
