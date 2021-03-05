@@ -22,16 +22,24 @@ def read_logs():
 
         log_df = pd.read_csv(file)
         log_df["test"] = test
+        log_df["index_test"] = test
         logs_df.append(log_df)
 
     all = pd.concat(logs_df, axis=0)
 
     all["app_id"] = all.apply(lambda x: f"{x.team} {x['name']} {x.type}", axis=1)
 
+    all.set_index("index_test", inplace=True)
+
     return all
 
 
-def stats(df, team, prod, type, graph, package, period):
+def stats(df, team, prod, type, graph, package, period, offset, window):
+
+    # filter offset and window
+    min = offset
+    max = offset+window-1
+    df = df.loc[min:max]
 
     # filter team
     if team != "all":
@@ -66,8 +74,13 @@ def stats(df, team, prod, type, graph, package, period):
 
             import altair as alt
 
+            if period == "test":
+                x_value = alt.X(period, scale=alt.Scale(domain=[min, max]))
+            else:
+                x_value = period
+
             c = alt.Chart(df).mark_circle().encode(
-                x=period,
+                x=x_value,
                 y=alt.Y(graph, scale=alt.Scale(type="log")),
                 size="code",
                 color="app_id",
@@ -180,5 +193,10 @@ if graph != "data":
             mpl_scatter="Matplotlib Scatter ❄️",
             mpl_plot="Matplotlib Plot 📈")[x])
 
+# offset
+window = 50
+max_offset = len(all_df.test.unique()) - window
+offset = st.slider("offset", 0, max_offset, max_offset)
+
 # show stats
-stats(all_df, team, prod, type, graph, package, period)
+stats(all_df, team, prod, type, graph, package, period, offset, window)
