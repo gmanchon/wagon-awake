@@ -67,7 +67,38 @@ def ping_apps(app_list):
     df.to_csv(f"data/{file_timestamp}_logs.csv", index=False)
 
 
-if __name__ == '__main__':
+def sleep():
+
+    # for each minute
+    for i in range(5):
+
+        # new line
+        print("\n", end="", flush=True)
+
+        # for each span of 10 seconds
+        for i in range(6):
+
+            # print dot
+            print(".", end="", flush=True)
+
+            # sleep
+            time.sleep(10)
+
+    print("\n", flush=True)
+
+
+def ping_all():
+
     params = load_params()
     ping_apps(params)
     # ping_apps(apps)
+
+
+if __name__ == '__main__':
+    while True:
+
+        # ping all
+        ping_all()
+
+        # sleep
+        sleep()
