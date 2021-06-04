@@ -10,6 +10,7 @@ import glob
 import os
 
 
+@st.cache
 def read_logs(batch):
 
     # list files sorted by time
