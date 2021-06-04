@@ -1,6 +1,7 @@
 
 import pandas as pd
 
+import os
 import requests
 
 import datetime
@@ -32,7 +33,7 @@ def load_params():
     # return list of dictionaries
     params_list = [v for _, v in params_df.T.to_dict().items()]
 
-    return params_list
+    return params_list, latest_batch
 
 
 def ping_app(url):
@@ -45,7 +46,7 @@ def ping_app(url):
     return response.status_code
 
 
-def ping_apps(app_list):
+def ping_apps(app_list, batch):
 
     # iterate through apps
     logs = []
@@ -73,7 +74,13 @@ def ping_apps(app_list):
     now = datetime.datetime.now()
     file_timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
     df = pd.DataFrame(logs)
-    df.to_csv(f"data/{file_timestamp}_logs.csv", index=False)
+    file_path = os.path.join(
+        os.path.dirname(__file__),
+        "data",
+        str(batch),
+        f"{file_timestamp}_logs.csv")
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    df.to_csv(file_path, index=False)
 
 
 def sleep():
@@ -98,8 +105,8 @@ def sleep():
 
 def ping_all():
 
-    params = load_params()
-    ping_apps(params)
+    params, batch = load_params()
+    ping_apps(params, batch)
     # ping_apps(apps)
 
 
