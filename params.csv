@@ -32,6 +32,8 @@ batch, team,     name,     type,   url
 589,   forest,   repo,     git,    https://github.com/TheChwal/forest_guard
 589,   forest,   train,    mlflow, https://mlflow.lewagon.co/#/experiments/12572
 589,   opinion,  prod,     web,    http://nyt-project.xyz/
+589,   opinion,  repo,     git,    https://github.com/ayayeuru/public_op
+589,   opinion,  team,     org,    https://trello.com/b/Bnp0y1QH/public-opinion
 589,   speaker,  team,     pres,   https://www.canva.com/design/DAEgPJp9LFY/ncmGrNVugwyOyEvQL_kx9w/edit#
 589,   speaker,  repo,     git,    https://github.com/dev-loic/meetings-speaker-diarization
 589,   g_2048,   team,     org,    https://www.notion.so/Year-2048-project-3c9b70bf65b749dc9e25a76c018bd7fc
