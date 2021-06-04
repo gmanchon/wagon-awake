@@ -114,6 +114,33 @@ def stats(df, team, prod, type, graph, package, period, offset, window):
             st.pyplot(fig)
 
 
+def get_team_icon(team):
+
+    icons = dict(
+        all="All",
+        # prev batch
+        galaxy="Galaxy Finder ⭐️",
+        mood="Speech Emotion Recognition 🎙",
+        facemask="Face Mask Detection 😷",
+        gameone="Game Book 🎲",
+        bling="Bling Back The Cash 💵",
+        coin="Bitcoin Prediction 💰",
+        openff="Open Food Facts 🥙",
+        # 589
+        bird="Bird's song reco 🦉",
+        exchange="Exchange rate pred 💸",
+        forest="Forest analyzer🌲",
+        opinion="Public opinion 🎙",
+        speaker="Speaker id 🔈",
+        g_2048="2048 🔢",
+        yoga="YogAssist 🧘‍♂️")
+
+    if team in icons:
+        return icons[team]
+
+    return team[:1].upper() + team[1:]
+
+
 # read logs
 all_df = read_logs()
 
@@ -124,15 +151,7 @@ teams = list(all_df.team.unique())
 team = st.sidebar.radio(
     "team",
     ["all"] + teams,
-    format_func=lambda x: dict(
-        all="All",
-        galaxy="Galaxy Finder ⭐️",
-        mood="Speech Emotion Recognition 🎙",
-        facemask="Face Mask Detection 😷",
-        gameone="Game Book 🎲",
-        bling="Bling Back The Cash 💵",
-        coin="Bitcoin Prediction 💰",
-        openff="Open Food Facts 🥙")[x])
+    format_func=lambda x: get_team_icon(x))
 
 # list prod
 prods = list(all_df.name.unique())
