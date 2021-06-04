@@ -214,8 +214,13 @@ if graph != "data":
 
 # offset
 window = 50
-max_offset = len(all_df.test.unique()) - window
-offset = st.slider("offset", 0, max_offset, max_offset)
+count = len(all_df.test.unique())
+
+if count > window:
+    max_offset = count - window
+    offset = st.slider("offset", 0, max_offset, max_offset)
+else:
+    offset = 0
 
 # show stats
 stats(all_df, team, prod, type, graph, package, period, offset, window)
