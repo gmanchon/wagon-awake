@@ -10,10 +10,14 @@ import glob
 import os
 
 
-def read_logs():
+def read_logs(batch):
 
     # list files sorted by time
-    files = glob.glob(os.path.join("data", "*.csv"))
+    files = glob.glob(
+        os.path.join(
+            "data",
+            str(batch),
+            "*.csv"))
     files.sort(key=os.path.getmtime)
 
     # iterate through log files
@@ -141,10 +145,16 @@ def get_team_icon(team):
     return team[:1].upper() + team[1:]
 
 
-# read logs
-all_df = read_logs()
-
 st.sidebar.markdown("# filters")
+
+# list batches
+batches = [os.path.basename(path) for path in glob.glob(os.path.join("data/*"))]
+batch = st.sidebar.radio(
+    "batch",
+    list(reversed(sorted(batches))))
+
+# read logs
+all_df = read_logs(batch)
 
 # list teams
 teams = list(all_df.team.unique())
