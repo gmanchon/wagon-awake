@@ -17,8 +17,17 @@ def load_params():
     # strip columns names
     params_df.rename(columns=lambda x: x.strip(), inplace=True)
 
+    # get string columns
+    str_cols = set(params_df.dtypes[params_df.dtypes == "object"].index)
+    other_cols = list(set(params_df.columns) - str_cols)
+
     # strip column content
-    params_df = params_df.apply(lambda x: x.str.strip(), axis=1)
+    str_params_df = params_df[str_cols].apply(lambda x: x.str.strip(), axis=1)
+    params_df = pd.concat([str_params_df, params_df[other_cols]], axis=1)
+
+    # select latest batch
+    latest_batch = max(params_df.batch)
+    params_df = params_df[params_df.batch == latest_batch]
 
     # return list of dictionaries
     params_list = [v for _, v in params_df.T.to_dict().items()]
