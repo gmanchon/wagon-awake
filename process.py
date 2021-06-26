@@ -2,6 +2,7 @@
 import pandas as pd
 
 import os
+import sys
 import requests
 
 import datetime
@@ -10,10 +11,14 @@ import time
 # from params import apps
 
 
-def load_params():
+def load_params(req_batch=None):
 
     # load csv
     params_df = pd.read_csv("params.csv")
+
+    # filter batches
+    if req_batch is not None:
+        params_df = params_df[params_df.batch == req_batch]
 
     # strip columns names
     params_df.rename(columns=lambda x: x.strip(), inplace=True)
@@ -103,18 +108,29 @@ def sleep():
     print("\n", flush=True)
 
 
-def ping_all():
+def ping_all(req_batch=None):
 
-    params, batch = load_params()
+    params, batch = load_params(req_batch)
     ping_apps(params, batch)
     # ping_apps(apps)
 
 
 if __name__ == '__main__':
+
+    # retrieve batch from cli params
+    batch = None if len(sys.argv) < 2 else sys.argv[1]
+
+    # convert param
+    try:
+        if batch is not None:
+            batch = int(batch)
+    except ValueError:
+        batch = None
+
     while True:
 
         # ping all
-        ping_all()
+        ping_all(batch)
 
         # sleep
         sleep()

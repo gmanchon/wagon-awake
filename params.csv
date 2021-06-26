@@ -42,3 +42,6 @@ batch, team,     name,     type,   url
 589,   yoga,     prod,     web,    https://peppy-primacy-309809.web.app/
 589,   yoga,     repo,     front,  https://github.com/ylg619/yogassist-vue-app
 589,   yoga,     repo,     back,   https://github.com/ylg619/yogAssist
+553,   wakeup,   team,     pres,   https://docs.google.com/presentation/d/1uHcXQr_ljTQM3A0Xa2qBU6bgQPREgSGiCoW4OSdPjvg/edit?ts=60d6f1f9#slide=id.p
+553,   wondrbox, team,     pres,   https://www.beautiful.ai/-Mcohh4dNaroTQ0bLLz7/1
+553,   wondrbox, prod,     web,    https://onemorebox-wonder.herokuapp.com/
