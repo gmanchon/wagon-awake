@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import sys
 import requests
+import traceback
 
 import datetime
 import time
@@ -45,7 +46,12 @@ def ping_app(url):
 
     # ping site
     print(f"ping {url}")
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except Exception as e:
+        print(f"\nping {url} 🚨 exception:\n{e}\n")
+        # print(traceback.format_exc())
+        return -1
 
     # return status code
     return response.status_code
