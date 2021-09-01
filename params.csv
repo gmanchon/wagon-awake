@@ -47,3 +47,5 @@ batch, team,         name,     type,   url
 553,   onemorebox,   prod,     web,    https://onemorebox-wonder.herokuapp.com/
 553,   tresboncoin,  team,     pres,   https://www.beautiful.ai/-McofeEdn8lxAzkFMe_B/1
 553,   tresboncoin,  team,     repo,   https://github.com/alobko/tresboncoin_extension
+655,   neuralart,    prod,     api,    https://neural-art-ympziugdca-nw.a.run.app/
+655,   neuralart,    prod,     web,    https://neural-art-app.herokuapp.com/
