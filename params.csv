@@ -49,3 +49,9 @@ batch, team,         name,     type,   url
 553,   tresboncoin,  team,     repo,   https://github.com/alobko/tresboncoin_extension
 655,   neuralart,    prod,     api,    https://neural-art-ympziugdca-nw.a.run.app/
 655,   neuralart,    prod,     web,    https://neural-art-app.herokuapp.com/
+655,   pix2pix,      prod,     api,    https://pix2pix-dttdfzxwga-ew.a.run.app/
+655,   pix2pix,      prod,     web,    https://yeswegan.herokuapp.com/
+655,   resto,        prod,     api,    https://resto-project-655-6q5sgolchq-ew.a.run.app/
+655,   resto,        prod,     web,    https://resto-project-655-front.herokuapp.com/
+655,   romaingary,   prod,     api,    https://apiamd64-ywkwoqtfqq-ew.a.run.app/
+655,   romaingary,   prod,     web,    -
