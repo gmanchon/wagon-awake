@@ -54,3 +54,4 @@ batch, team,         name,     type,   url
 655,   resto,        prod,     api,    https://resto-project-655-6q5sgolchq-ew.a.run.app/
 655,   resto,        prod,     web,    https://resto-project-655-front.herokuapp.com/
 655,   romaingary,   prod,     api,    https://apiamd64-ywkwoqtfqq-ew.a.run.app/
+655,   romaingary,   prod,     web,    https://author-style.herokuapp.com/
