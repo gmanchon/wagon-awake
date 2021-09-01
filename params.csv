@@ -55,3 +55,4 @@ batch, team,         name,     type,   url
 655,   resto,        prod,     web,    https://resto-project-655-front.herokuapp.com/
 655,   romaingary,   prod,     api,    https://apiamd64-ywkwoqtfqq-ew.a.run.app/
 655,   romaingary,   prod,     web,    https://author-style.herokuapp.com/
+655,   soccertrade,  prod,     web,    https://soccer-trade.herokuapp.com/
