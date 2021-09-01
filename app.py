@@ -189,7 +189,7 @@ type = st.sidebar.radio(
         org="Project 🧮",
         status="Org 📈")[x])
 
-cols = st.beta_columns(3)
+cols = st.columns(3)
 
 # graph
 graph = cols[0].radio(
