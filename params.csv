@@ -49,10 +49,15 @@ batch, team,         name,     type,   url
 553,   tresboncoin,  team,     repo,   https://github.com/alobko/tresboncoin_extension
 655,   neuralart,    prod,     api,    https://neural-art-ympziugdca-nw.a.run.app/
 655,   neuralart,    prod,     web,    https://neural-art-app.herokuapp.com/
+655,   neuralart,    prod,     web,    http://neural-art.com/
 655,   pix2pix,      prod,     api,    https://pix2pix-dttdfzxwga-ew.a.run.app/
 655,   pix2pix,      prod,     web,    https://yeswegan.herokuapp.com/
 655,   resto,        prod,     api,    https://resto-project-655-6q5sgolchq-ew.a.run.app/
 655,   resto,        prod,     web,    https://resto-project-655-front.herokuapp.com/
+655,   resto,        prod,     pres,   https://docs.google.com/presentation/d/1fZeseU-i9xarUNIl24P5IduPXHA4uJu7/edit?usp=sharing&ouid=115357335785077098946&rtpof=true&sd=true
 655,   romaingary,   prod,     api,    https://apiamd64-ywkwoqtfqq-ew.a.run.app/
 655,   romaingary,   prod,     web,    https://author-style.herokuapp.com/
+655,   romaingary,   prod,     pres,   https://www.beautiful.ai/player/-Mia3EHXUCQ9gidAix1P
 655,   soccertrade,  prod,     web,    https://soccer-trade.herokuapp.com/
+655,   soccertrade,  prod,     pres,   https://docs.google.com/presentation/d/1566RZfNWZc3rRh03ZIa0pFU0hu8XaD6wrANQdc-DwSQ/edit?usp=sharing
+655,   woo,          prod,     pres,   https://docs.google.com/presentation/d/1X-wKwih6uc--Qtj6xtfDar6BQDhO4S9APFGlV7Md-OY/edit#
