@@ -9,8 +9,6 @@ import requests
 import datetime
 import time
 
-# from params import apps
-
 
 def load_params(req_batch=None):
 
@@ -118,7 +116,6 @@ def ping_all(req_batch=None):
 
     params, batch = load_params(req_batch)
     ping_apps(params, batch)
-    # ping_apps(apps)
 
 
 if __name__ == '__main__':

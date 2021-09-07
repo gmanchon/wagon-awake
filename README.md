@@ -1,14 +1,21 @@
 
+# setup
+
+``` bash
+pip install -r requirements.txt         # install requirements
+```
+
 # usage
+
+## keep alive
 
 ``` bash
 python -m process 553         # ping specific batch
 make run                      # ping all sites from current batch
-make web                      # data viz app
 ```
 
-# todo
+## dashboard
 
-- [ ] record response time in order to see when it sleeps
-
-- [ ] use correct input for API and test output formats
+``` bash
+make web                      # data viz app
+```
