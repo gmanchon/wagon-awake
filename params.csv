@@ -62,3 +62,14 @@ batch, team,         name,     type,   url
 655,   soccertrade,  prod,     web,    https://soccer-trade.herokuapp.com/
 655,   soccertrade,  prod,     pres,   https://docs.google.com/presentation/d/1566RZfNWZc3rRh03ZIa0pFU0hu8XaD6wrANQdc-DwSQ/edit?usp=sharing
 655,   woo,          prod,     pres,   https://docs.google.com/presentation/d/1X-wKwih6uc--Qtj6xtfDar6BQDhO4S9APFGlV7Md-OY/edit#
+722,   bachpropag,   prod,     web,    none
+722,   artia,        prod,     web,    http://art-ia.serveirc.com:8001/
+722,   inpainting,   prod,     web,    https://image-inpainting-722.herokuapp.com/
+722,   roaddetector, prod,     web,    https://road-detector.herokuapp.com/
+722,   gaiacare,     prod,     web,    https://share.streamlit.io/ygf8/gaiacare-front/main/app.py
+722,   signlanguage, prod,     web,    https://share.streamlit.io/jvesp/sld/branch
+722,   antifakesci,  prod,     web,    https://antifakescience.herokuapp.com/
+722,   playertovec,  prod,     web,    https://share.streamlit.io/nath301/streamlit/streamlit/main_app.py
+722,   cinepred,     prod,     web,    https://cinepredapp.herokuapp.com/
+722,   fobo,         prod,     web,    https://share.streamlit.io/arthurcol/fobokiller_front/fobokiller_front/app.py
+722,   beerly,       prod,     web,    https://share.streamlit.io/jbpe/beerly_app/app_beerly.py
